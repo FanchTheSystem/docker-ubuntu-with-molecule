@@ -16,6 +16,8 @@ RUN apt-get -y install python-pip
 
 RUN pip install virtualenv ansible molecule docker
 
+ENV ANSIBLE_LOAD_CALLBACK_PLUGINS=1
+
 ENV ANSIBLE_ROLES_PATH=/var/lib/ansible/roles
 
 RUN mkdir -p $ANSIBLE_ROLES_PATH
