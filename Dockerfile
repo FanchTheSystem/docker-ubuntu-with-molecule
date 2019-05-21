@@ -22,6 +22,8 @@ ENV ANSIBLE_STDOUT_CALLBACK=debug
 
 ENV ANSIBLE_ROLES_PATH=/var/lib/ansible/roles
 
+ENV ANSIBLE_CALLABLE_WHITELIST=profile_tasks
+
 RUN mkdir -p $ANSIBLE_ROLES_PATH
 
 COPY requirements.yml $ANSIBLE_ROLES_PATH/
