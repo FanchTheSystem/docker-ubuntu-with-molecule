@@ -15,3 +15,11 @@ RUN apt-get -y install docker-ce docker-ce-cli containerd.io
 RUN apt-get -y install python-pip
 
 RUN pip install virtualenv ansible molecule docker
+
+ENV ANSIBLE_ROLES_PATH=/var/lib/ansible/roles
+
+RUN mkdir -p $ANSIBLE_ROLES_PATH
+
+COPY requirements.yml $ANSIBLE_ROLES_PATH/
+
+RUN ansible-galaxy install -r $ANSIBLE_ROLES_PATH/requirements.yml

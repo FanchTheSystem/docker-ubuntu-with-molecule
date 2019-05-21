@@ -1,0 +1,9 @@
+- src: geerlingguy.repo-epel
+- src: geerlingguy.git
+- src: geerlingguy.pip
+- src: geerlingguy.docker
+- src: geerlingguy.nodejs
+- src: geerlingguy.mysql
+- src: undergreen.mongodb
+- src: mrlesmithjr.rabbitmq
+- src: geerlingguy.redis
