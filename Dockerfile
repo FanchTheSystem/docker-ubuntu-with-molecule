@@ -24,6 +24,8 @@ ENV ANSIBLE_ROLES_PATH=/etc/ansible/roles
 
 RUN mkdir -p $ANSIBLE_ROLES_PATH
 
-COPY requirements.yml $ANSIBLE_ROLES_PATH/
+# as ansible-galaxy does not allow update without force
 
-RUN ansible-galaxy install -r $ANSIBLE_ROLES_PATH/requirements.yml
+# COPY requirements.yml $ANSIBLE_ROLES_PATH/
+
+# RUN ansible-galaxy install -r $ANSIBLE_ROLES_PATH/requirements.yml
