@@ -1,6 +1,8 @@
 from ubuntu:latest
 
-RUN apt-get -y -o Acquire::GzipIndexes=false update
+RUN apt-get -y -o Acquire::GzipIndexes=false update && apt-get -y upgrade && apt-get -y clean
+
+## DOCKER
 
 RUN apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 
@@ -12,9 +14,13 @@ RUN apt-get -y update
 
 RUN apt-get -y install docker-ce docker-ce-cli containerd.io
 
-RUN apt-get -y install python-pip
+## PYTHON
 
-RUN pip install virtualenv ansible molecule docker
+RUN apt-get -y install python3-pip
+
+RUN pip3 install virtualenv ansible molecule docker
+
+## ANSIBLE
 
 ENV ANSIBLE_LOAD_CALLBACK_PLUGINS=1
 
