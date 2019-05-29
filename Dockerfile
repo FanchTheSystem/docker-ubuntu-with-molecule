@@ -1,5 +1,8 @@
 from ubuntu:latest
 
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
 RUN apt-get -y -o Acquire::GzipIndexes=false update && apt-get -y upgrade && apt-get -y clean
 
 ## DOCKER
