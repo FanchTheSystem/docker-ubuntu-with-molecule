@@ -21,7 +21,7 @@ RUN apt-get -y install docker-ce docker-ce-cli containerd.io
 
 RUN apt-get -y install python python3 python-pip python3-pip
 
-RUN pip3 install virtualenv ansible molecule docker
+RUN pip3 install -U pip setuptools virtualenv ansible molecule docker
 
 ## ANSIBLE
 
