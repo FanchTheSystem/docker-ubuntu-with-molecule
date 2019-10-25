@@ -19,7 +19,7 @@ RUN apt-get -y install docker-ce docker-ce-cli containerd.io
 
 ## PYTHON
 
-# RUN apt-get -y install python python-dev python-pip python-setuptools python-setuptools-scm python-virtualenv python-pkg-resources
+RUN apt-get -y install python python-dev python-pip python-setuptools python-setuptools-scm python-virtualenv python-pkg-resources
 
 # PYTHON3
 
