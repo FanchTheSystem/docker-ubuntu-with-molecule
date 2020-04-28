@@ -13,7 +13,7 @@ RUN apt-get --yes update
 ## ANSIBLE
 RUN apt-add-repository --yes --update ppa:ansible/ansible
 RUN apt-get -y update
-RUN apt-get -y install ansible python3-pip
+RUN apt-get -y install ansible python3-pip python-pip
 
 ## DOCKER
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
