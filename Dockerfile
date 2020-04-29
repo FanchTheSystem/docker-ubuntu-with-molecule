@@ -29,7 +29,7 @@ ENV ANSIBLE_PIPELINING=True
 RUN mkdir -p $ANSIBLE_ROLES_PATH
 
 # molecule
-RUN pip3 install -U ansible-lint molecule docker
+RUN pip3 install -U yamllint ansible-lint molecule docker
 
 # clean
 RUN apt-get --yes autoremove
