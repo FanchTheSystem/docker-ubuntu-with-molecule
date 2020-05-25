@@ -5,6 +5,7 @@ ENV LANG=C.UTF-8
 
 RUN apt-get --yes -o Acquire::GzipIndexes=false update && apt-get --yes upgrade
 RUN apt-get install --yes apt-utils apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+RUN apt-get install --yes iproute2 net-tools traceroute iputils-ping
 
 RUN add-apt-repository --yes --update main
 RUN add-apt-repository --yes --update universe
