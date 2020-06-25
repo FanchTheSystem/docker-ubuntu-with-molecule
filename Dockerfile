@@ -26,6 +26,7 @@ RUN apt-get -y install docker-ce docker-ce-cli containerd.io
 ENV ANSIBLE_STDOUT_CALLBACK=debug
 ENV ANSIBLE_ROLES_PATH=/usr/share/ansible/roles
 ENV ANSIBLE_PIPELINING=True
+ENV ANSIBLE_PYTHON_INTERPRETER=auto
 
 RUN mkdir -p $ANSIBLE_ROLES_PATH
 
