@@ -1,7 +1,8 @@
-from ubuntu:18.04
+from ubuntu:20.04
 
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get --yes -o Acquire::GzipIndexes=false update && apt-get --yes upgrade
 RUN apt-get install --yes apt-utils apt-transport-https ca-certificates curl gnupg-agent software-properties-common
@@ -12,9 +13,9 @@ RUN add-apt-repository --yes --update universe
 RUN apt-get --yes update
 
 ## ANSIBLE
-RUN apt-add-repository --yes --update ppa:ansible/ansible
+#RUN apt-add-repository --yes --update ppa:ansible/ansible
 RUN apt-get -y update
-RUN apt-get -y install ansible python3-pip python-pip
+RUN apt-get -y install python python3-pip # ansible
 
 ## DOCKER
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -31,7 +32,7 @@ ENV ANSIBLE_PYTHON_INTERPRETER=auto
 RUN mkdir -p $ANSIBLE_ROLES_PATH
 
 # molecule
-RUN pip3 install -U yamllint ansible-lint molecule docker
+RUN pip3 install -U ansible yamllint ansible-lint molecule docker
 
 # clean
 RUN apt-get --yes autoremove
