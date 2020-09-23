@@ -3,6 +3,8 @@ Docker Image From Ubuntu with ansible and molecule
 
 ### Should be used in gitlab runner:
 
+A full example here: https://gitlab.com/FanchG/ansible-molecule-skeleton
+
 #### In .gitlab-ci.yml, add:
 
 ```yaml
