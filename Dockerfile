@@ -14,8 +14,11 @@ RUN apt-get --yes update
 
 ## ANSIBLE
 #RUN apt-add-repository --yes --update ppa:ansible/ansible
-RUN apt-get -y update
-RUN apt-get -y install python python3-pip # ansible
+#RUN apt-get -y update
+RUN apt-get -y install build-essential libssl-dev libffi-dev python3 python3-pip python3-dev # ansible
+# switch to python3 by default
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
 
 ## DOCKER
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -32,7 +35,7 @@ ENV ANSIBLE_PYTHON_INTERPRETER=auto
 RUN mkdir -p $ANSIBLE_ROLES_PATH
 
 # molecule
-RUN pip3 install -U ansible yamllint ansible-lint molecule docker
+RUN pip install -U ansible yamllint ansible-lint molecule docker
 
 # clean
 RUN apt-get --yes autoremove
