@@ -28,14 +28,13 @@ RUN apt-get -y install docker-ce docker-ce-cli containerd.io
 
 ## ENV
 ENV ANSIBLE_STDOUT_CALLBACK=debug
-ENV ANSIBLE_ROLES_PATH=/usr/share/ansible/roles
-ENV ANSIBLE_PIPELINING=True
-ENV ANSIBLE_PYTHON_INTERPRETER=auto
+ENV ANSIBLE_CALLBACK_WHITELIST=profile_tasks
+ENV ANSIBLE_NOCOWS=True
 
 RUN mkdir -p $ANSIBLE_ROLES_PATH
 
 # molecule
-RUN pip install -U ansible yamllint ansible-lint molecule docker
+RUN pip install -U ansible yamllint ansible-lint molecule molecule-docker
 
 # clean
 RUN apt-get --yes autoremove
